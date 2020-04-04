@@ -13,16 +13,27 @@ class ArticleCell: UITableViewCell {
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var articleTitle: UILabel!
     @IBOutlet weak var articleDate: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    var article: Article?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = .none
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func update(with article: Article) {
+        self.article = article
+        articleTitle.text = article.title
+ //       articleDate.text = article.date
     }
-
+    
+    func didStartActivitiIndicatorLoading() {
+           activityIndicator?.startAnimating()
+       }
+       
+    func didFinishActivitiIndicatorLoading() {
+           activityIndicator.stopAnimating()
+           activityIndicator.isHidden = true
+    }
 }

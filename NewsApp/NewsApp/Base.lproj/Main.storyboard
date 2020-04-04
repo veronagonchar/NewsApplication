@@ -56,18 +56,24 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cKf-kZ-7Zc">
+                                                    <rect key="frame" x="90.5" y="96" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="KvU-kb-bqY" firstAttribute="leading" secondItem="9MO-Pk-08g" secondAttribute="leadingMargin" constant="8" id="Bj2-bw-Lwb"/>
                                                 <constraint firstItem="TWA-q1-3IH" firstAttribute="leading" secondItem="KvU-kb-bqY" secondAttribute="trailing" constant="8" id="GYT-KH-Ymx"/>
+                                                <constraint firstItem="cKf-kZ-7Zc" firstAttribute="centerX" secondItem="KvU-kb-bqY" secondAttribute="centerX" id="GfU-KB-KbI"/>
                                                 <constraint firstItem="TWA-q1-3IH" firstAttribute="leading" secondItem="KvU-kb-bqY" secondAttribute="trailing" constant="8" id="WPc-KA-Xv4"/>
                                                 <constraint firstItem="TWA-q1-3IH" firstAttribute="centerY" secondItem="KvU-kb-bqY" secondAttribute="centerY" id="XuJ-nW-ajh"/>
                                                 <constraint firstItem="KvU-kb-bqY" firstAttribute="centerY" secondItem="9MO-Pk-08g" secondAttribute="centerY" id="twc-re-KbO"/>
+                                                <constraint firstItem="cKf-kZ-7Zc" firstAttribute="centerY" secondItem="KvU-kb-bqY" secondAttribute="centerY" id="u3j-rP-hE4"/>
                                                 <constraint firstItem="TWA-q1-3IH" firstAttribute="leading" secondItem="KvU-kb-bqY" secondAttribute="trailing" constant="8" id="xgI-n8-7B6"/>
                                                 <constraint firstItem="KvU-kb-bqY" firstAttribute="leading" secondItem="9MO-Pk-08g" secondAttribute="leadingMargin" constant="8" id="ysL-X5-hhk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="cKf-kZ-7Zc" id="1k5-NX-LCB"/>
                                             <outlet property="articleDate" destination="e8e-vL-XDc" id="Ugx-uu-f0S"/>
                                             <outlet property="articleImage" destination="KvU-kb-bqY" id="I5K-Ds-awd"/>
                                             <outlet property="articleTitle" destination="NxZ-Va-rJo" id="qTC-v5-NMX"/>
