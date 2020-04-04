@@ -16,6 +16,7 @@
 		94F003E924379D420029F565 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F003E824379D420029F565 /* ArticleCell.swift */; };
 		94F003EB2437A1CE0029F565 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F003EA2437A1CE0029F565 /* Article.swift */; };
 		94F003ED2437C0570029F565 /* ArticleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F003EC2437C0570029F565 /* ArticleDetailsViewController.swift */; };
+		94F003F024389D040029F565 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F003EF24389D040029F565 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		94F003E824379D420029F565 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		94F003EA2437A1CE0029F565 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		94F003EC2437C0570029F565 /* ArticleDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewController.swift; sourceTree = "<group>"; };
+		94F003EF24389D040029F565 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				94F003EC2437C0570029F565 /* ArticleDetailsViewController.swift */,
 				94F003E824379D420029F565 /* ArticleCell.swift */,
 				94F003EA2437A1CE0029F565 /* Article.swift */,
+				94F003EF24389D040029F565 /* DataManager.swift */,
 				94F003DA243794EF0029F565 /* Main.storyboard */,
 				94F003DD243794F20029F565 /* Assets.xcassets */,
 				94F003DF243794F20029F565 /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 				94F003E924379D420029F565 /* ArticleCell.swift in Sources */,
 				94F003D9243794EF0029F565 /* ViewController.swift in Sources */,
 				94F003ED2437C0570029F565 /* ArticleDetailsViewController.swift in Sources */,
+				94F003F024389D040029F565 /* DataManager.swift in Sources */,
 				94F003D5243794EF0029F565 /* AppDelegate.swift in Sources */,
 				94F003D7243794EF0029F565 /* SceneDelegate.swift in Sources */,
 				94F003EB2437A1CE0029F565 /* Article.swift in Sources */,

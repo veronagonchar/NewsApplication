@@ -1,47 +1,19 @@
 //
-//  ViewController.swift
+//  DataManager.swift
 //  NewsApp
 //
-//  Created by Вероника on 4/3/20.
+//  Created by Вероника on 4/4/20.
 //  Copyright © 2020 Veronika Gonchar. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
+class DataManager {
     
-    var articles:[Article] = []
-    var selectedArticle: Article?
-    let newsRefreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
-        return refreshControl
-    }()
+    static let shared = DataManager()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.refreshControl = newsRefreshControl
+    private init() {}
     
-    }
-    
-    @objc private func refresh(sender: UIRefreshControl) {
-        tableView.reloadData()
-        sender.endRefreshing()
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ArticleDetails" {
-            let vc = segue.destination as? ArticleDetailsViewController
-            if let article = selectedArticle {
-                vc?.article = article
-            }
-        }
-    }
     
     func fetchArticles (completion: @escaping ([Article]) -> Void) {
         
@@ -87,30 +59,5 @@ class ViewController: UIViewController {
         }
         dataTask.resume()
     }
-}
-
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
-    }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellID = "articleCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? ArticleCell else { return UITableViewCell()}
-        cell.articleTitle.text = "Hello"
-        cell.articleDate.text = "Good day"
-        return cell
-    }
-}
-
-extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let article = articles[indexPath.row]
-        selectedArticle = article
-        performSegue(withIdentifier: "ArticleDetails", sender: nil)
-    }
 }
