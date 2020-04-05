@@ -10,27 +10,21 @@ import UIKit
 import Kingfisher
 
 class ArticleDetailsViewController: UIViewController {
-    
-    
     @IBOutlet weak var articleTitle: UILabel!
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var articleDescription: UITextView!
     @IBOutlet weak var articleDate: UILabel!
     
     var article: Article?
-    var articles:[Article] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadArticles()
+        setUpNews()
     }
     
-    func loadArticles () {
-        DataManager.shared.loadArticles { [weak self] articleItems in
-            guard let self = self else {return}
-            DispatchQueue.main.async {
-                self.articles = articleItems
-            }
-        }
+    private func setUpNews() {
+        articleTitle.text = article?.title
+        articleDescription.text = article?.artDescription
+        articleDate.text = article?.date
     }
 }

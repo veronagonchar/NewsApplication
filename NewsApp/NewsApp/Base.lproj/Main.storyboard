@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Health News-->
+        <!--News-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,7 +95,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Health News" id="eBq-Gu-GaG"/>
+                    <navigationItem key="navigationItem" title="News" id="eBq-Gu-GaG"/>
                     <connections>
                         <outlet property="tableView" destination="Z8t-N3-U4M" id="y62-Ah-LKf"/>
                         <segue destination="DPF-Ms-OX7" kind="show" identifier="ArticleDetails" id="4CH-On-ivj"/>

@@ -25,15 +25,15 @@ class ArticleCell: UITableViewCell {
     func update(with article: Article) {
         self.article = article
         articleTitle.text = article.title
- //       articleDate.text = article.date
+        articleDate.text = article.date
     }
     
     func didStartActivitiIndicatorLoading() {
-           activityIndicator?.startAnimating()
-       }
+        activityIndicator?.startAnimating()
+    }
        
     func didFinishActivitiIndicatorLoading() {
-           activityIndicator.stopAnimating()
-           activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
     }
 }

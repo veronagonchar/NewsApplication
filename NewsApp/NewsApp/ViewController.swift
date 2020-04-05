@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var articles:[Article] = []
+    var articles:[Article?] = []
     var selectedArticle: Article?
     let newsRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -26,15 +26,18 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.refreshControl = newsRefreshControl
-    
+        loadArticles()
     }
     
     func loadArticles () {
-        DataManager.shared.loadArticles { [weak self] (articles) in
+        let dataManager = DataManager()
+        DispatchQueue.global(qos: .userInitiated).async {
+            dataManager.loadArticles { [weak self] (articles) in
             guard let self = self else {return}
             DispatchQueue.main.async { [weak self] in
                 self?.articles = articles
                 self?.tableView.reloadData()
+                }
             }
         }
     }
@@ -42,8 +45,8 @@ class ViewController: UIViewController {
     @objc private func refresh(sender: UIRefreshControl) {
         tableView.reloadData()
         sender.endRefreshing()
+        // TODO: - load data News
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ArticleDetails" {
@@ -75,6 +78,11 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 212
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = articles[indexPath.row]
         selectedArticle = article
