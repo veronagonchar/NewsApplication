@@ -29,23 +29,24 @@ class ViewController: UIViewController {
         loadArticles()
     }
     
-    func loadArticles () {
-        let dataManager = DataManager()
-        DispatchQueue.global(qos: .userInitiated).async {
-            dataManager.loadArticles { [weak self] (articles) in
+    
+    func loadArticles() {
+        
+        DataManager.shared.loadArticles { [weak self] (articles) in
             guard let self = self else {return}
-            DispatchQueue.main.async { [weak self] in
-                self?.articles = articles
-                self?.tableView.reloadData()
-                }
+            DispatchQueue.main.async {
+                self.articles = articles
+                self.tableView.reloadData()
             }
         }
     }
     
     @objc private func refresh(sender: UIRefreshControl) {
+        
+        loadArticles()
         tableView.reloadData()
         sender.endRefreshing()
-        // TODO: - load data News
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,9 +71,10 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellID = "articleCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? ArticleCell else { return UITableViewCell()}
-   //     cell.update(with: articles[indexPath.row])
-        cell.articleTitle.text = "Hello"
-        cell.articleDate.text = "Good day"
+        cell.update(with: articles[indexPath.row]!)
+        cell.articleImage.kf.indicatorType = .activity
+        let resourse = ImageResource(downloadURL: URL(string: articles[indexPath.row]!.imageURL ?? "")!, cacheKey: articles[indexPath.row]?.imageURL)
+        cell.articleImage.kf.setImage(with: resourse)        
         return cell
     }
 }

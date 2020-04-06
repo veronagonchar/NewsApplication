@@ -13,7 +13,6 @@ class ArticleCell: UITableViewCell {
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var articleTitle: UILabel!
     @IBOutlet weak var articleDate: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var article: Article?
     
@@ -28,12 +27,12 @@ class ArticleCell: UITableViewCell {
         articleDate.text = article.date
     }
     
-    func didStartActivitiIndicatorLoading() {
-        activityIndicator?.startAnimating()
-    }
-       
-    func didFinishActivitiIndicatorLoading() {
-        activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
-    }
+//    func didStartActivitiIndicatorLoading() {
+//        activityIndicator?.startAnimating()
+//    }
+//
+//    func didFinishActivitiIndicatorLoading() {
+//        activityIndicator.stopAnimating()
+//        activityIndicator.isHidden = true
+//    }
 }

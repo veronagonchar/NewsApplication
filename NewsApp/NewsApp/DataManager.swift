@@ -10,6 +10,10 @@ import Foundation
 
 class DataManager {
     
+    static let shared = DataManager()
+    
+    private init() {}
+    
     func loadArticles (completion: @escaping ([Article?]) -> Void) {
         let URLRequest =  "https://newsapi.org/v1/articles?source=the-verge&apiKey=5c05f157e6fe41bd8d27314546cd607c"
         guard let url = URL(string: URLRequest) else {return}
