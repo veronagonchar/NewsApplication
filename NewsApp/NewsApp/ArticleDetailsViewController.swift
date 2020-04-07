@@ -10,22 +10,30 @@ import UIKit
 import Kingfisher
 
 class ArticleDetailsViewController: UIViewController {
+    
+    //MARK: - Outlets
+    
     @IBOutlet weak var articleTitle: UILabel!
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var articleDescription: UILabel!
     @IBOutlet weak var articleDate: UILabel!
     @IBOutlet weak var urlToArticle: UITextView!
     
+    //MARK: - Variable
     
     var article: Article?
-
+    
+    //MARK: - Lifecycle VC
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpNews()
         setUpImage()
         updateTextView()
     }
+    
+    //MARK: - Methods
     
     private func updateTextView() {
         
@@ -50,6 +58,7 @@ class ArticleDetailsViewController: UIViewController {
     }
 }
 
+//MARK: - Extension NSAttributedString
 
 extension NSAttributedString {
     

@@ -8,13 +8,6 @@
 
 import UIKit
 
-struct News {
-    var status: String
-    var source: String
-    var sortBy: String
-    var articles: [Article]
-}
-
 class Article {
     var author: String?
     var title: String?
@@ -24,8 +17,8 @@ class Article {
     var date: String?
     
     init?(author: String?, title: String?,
-           artDescription: String?, urlToArticle: String?,
-           imageURL: String?, date: String?) {
+          artDescription: String?, urlToArticle: String?,
+          imageURL: String?, date: String?) {
         self.title = title
         self.author = author
         self.artDescription = artDescription

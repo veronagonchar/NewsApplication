@@ -27,15 +27,14 @@ class DataManager {
                 else {return}
             do {
                 
-                    guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject] else {return}
-                    
-                  guard  let articlesFromJson = json["articles"] as? [[String:String]]
+                guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject] else {return}
+                
+                guard  let articlesFromJson = json["articles"] as? [[String:String]]
                     else {return}
-                    
-                    var articles: [Article?] = []
+                
+                var articles: [Article?] = []
                 
                 for articlesFJ in articlesFromJson {
-                    let realm = try? Realm()
                     let articles = ArticleRealmModel()
                     articles.title = articlesFJ["title"] ?? ""
                     articles.artDescription = articlesFJ["description"] ?? ""
@@ -43,24 +42,24 @@ class DataManager {
                     articles.date = articlesFJ["publishedAt"] ?? ""
                     articles.imageURL = articlesFJ["urlToImage"] ?? ""
                     articles.urlToArticle = articlesFJ["url"] ?? ""
+                    articles.itemId = ArticleRealmModel.primaryKey() ?? ""
                     
-                    try? realm?.write {
-                        realm?.add(articles)
-                    }
+                    /* I was trying to set and save objects in realm
+                     
+                     DBService.shared.setObjectToDB(object: articles)
+                     
+                     DBService.shared.getObject(ofType: ArticleRealmModel.self, forPrimaryKey: articles.itemId) */
                 }
                 articlesFromJson.forEach { [weak self] articleData in
-                                articles.append(self?.getArticle(for: articleData))
-                                    }
-                
-                    completion(articles)
-                    print(articles)
-                
+                    articles.append(self?.getArticle(for: articleData))
+                }
+                completion(articles)
+                print(articles)
             } catch {
                 print(error) }
         }
         dataTask.resume()        
     }
-
     
     private func getArticle(for json: [String:String]) -> Article? {
         let author = json["author"]
@@ -75,8 +74,7 @@ class DataManager {
                        urlToArticle: urlToArticle,
                        imageURL: imageURL,
                        date: date)
-    }
-    
+    }    
 }
 
 

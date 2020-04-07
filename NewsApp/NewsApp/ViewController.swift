@@ -10,8 +10,12 @@ import UIKit
 import Kingfisher
 
 class ViewController: UIViewController {
-
+    
+    //MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: - Variables
     
     var articles:[Article?] = []
     var selectedArticle: Article?
@@ -21,6 +25,8 @@ class ViewController: UIViewController {
         return refreshControl
     }()
     
+    //MARK: - LifecycleVC
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -29,6 +35,7 @@ class ViewController: UIViewController {
         loadArticles()
     }
     
+    //MARK: - Methods
     
     func loadArticles() {
         
@@ -59,6 +66,8 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDataSource
+
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
@@ -78,6 +87,8 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
 }
+
+//MARK: - UITableViewDelegate
 
 extension ViewController: UITableViewDelegate {
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9446945F243B942F0042D6BC /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446945E243B942F0042D6BC /* RealmModel.swift */; };
+		94469465243CF8D80042D6BC /* DataBaseRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94469464243CF8D80042D6BC /* DataBaseRealm.swift */; };
 		94F003D5243794EF0029F565 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F003D4243794EF0029F565 /* AppDelegate.swift */; };
 		94F003D7243794EF0029F565 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F003D6243794EF0029F565 /* SceneDelegate.swift */; };
 		94F003D9243794EF0029F565 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F003D8243794EF0029F565 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		17E85D87BAFE1AF48CDD291F /* Pods-NewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.debug.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		80BC2C00A28056E1F9627BC0 /* Pods-NewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.release.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.release.xcconfig"; sourceTree = "<group>"; };
 		9446945E243B942F0042D6BC /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		94469464243CF8D80042D6BC /* DataBaseRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseRealm.swift; sourceTree = "<group>"; };
 		94F003D1243794EF0029F565 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F003D4243794EF0029F565 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94F003D6243794EF0029F565 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				94F003EA2437A1CE0029F565 /* Article.swift */,
 				94F003EF24389D040029F565 /* DataManager.swift */,
 				9446945E243B942F0042D6BC /* RealmModel.swift */,
+				94469464243CF8D80042D6BC /* DataBaseRealm.swift */,
 				94F003DA243794EF0029F565 /* Main.storyboard */,
 				94F003DD243794F20029F565 /* Assets.xcassets */,
 				94F003DF243794F20029F565 /* LaunchScreen.storyboard */,
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F003E924379D420029F565 /* ArticleCell.swift in Sources */,
+				94469465243CF8D80042D6BC /* DataBaseRealm.swift in Sources */,
 				94F003D9243794EF0029F565 /* ViewController.swift in Sources */,
 				94F003ED2437C0570029F565 /* ArticleDetailsViewController.swift in Sources */,
 				94F003F024389D040029F565 /* DataManager.swift in Sources */,
