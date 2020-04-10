@@ -34,6 +34,7 @@ class DataManager {
                 
                 var articles: [Article?] = []
                 
+                
                 for articlesFJ in articlesFromJson {
                     let articles = ArticleRealmModel()
                     articles.title = articlesFJ["title"] ?? ""
@@ -42,19 +43,12 @@ class DataManager {
                     articles.date = articlesFJ["publishedAt"] ?? ""
                     articles.imageURL = articlesFJ["urlToImage"] ?? ""
                     articles.urlToArticle = articlesFJ["url"] ?? ""
-                    articles.itemId = ArticleRealmModel.primaryKey() ?? ""
-                    
-                    /* I was trying to set and save objects in realm
-                     
-                     DBService.shared.setObjectToDB(object: articles)
-                     
-                     DBService.shared.getObject(ofType: ArticleRealmModel.self, forPrimaryKey: articles.itemId) */
                 }
                 articlesFromJson.forEach { [weak self] articleData in
-                    articles.append(self?.getArticle(for: articleData))
-                }
+                    articles.append(self?.getArticle(for: articleData)) }
                 completion(articles)
                 print(articles)
+               
             } catch {
                 print(error) }
         }
@@ -74,7 +68,8 @@ class DataManager {
                        urlToArticle: urlToArticle,
                        imageURL: imageURL,
                        date: date)
-    }    
+    }
+
 }
 
 

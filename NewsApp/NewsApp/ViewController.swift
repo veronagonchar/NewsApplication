@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -19,6 +20,8 @@ class ViewController: UIViewController {
     
     var articles:[Article?] = []
     var selectedArticle: Article?
+    var realmArticles: [ArticleRealmModel?] = []
+    
     let newsRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
@@ -35,6 +38,7 @@ class ViewController: UIViewController {
         loadArticles()
     }
     
+    
     //MARK: - Methods
     
     func loadArticles() {
@@ -43,6 +47,12 @@ class ViewController: UIViewController {
             guard let self = self else {return}
             DispatchQueue.main.async {
                 self.articles = articles
+                articles.forEach { [weak self] (art) in
+                    self?.realmArticles.append(ArticleRealmModel.toArticleRealmModel(article: art!))
+                                   }
+                DBService.shared.setObjectsToDB(objects: self.realmArticles as! [Object])
+                print(self.realmArticles)
+//                DBService.shared.getObject(ofType: ArticleRealmModel.self, forPrimaryKey: "title")
                 self.tableView.reloadData()
             }
         }

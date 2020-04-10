@@ -63,7 +63,7 @@ extension DBService {
     }
     
     func getObjects<T: Object>(_ type: T.Type) -> Results<T>? {
-        return realm?.objects(type).sorted(byKeyPath: "order")
+        return realm?.objects(type).sorted(byKeyPath: "title")
     }
     
 }
